@@ -32,6 +32,51 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
+      const typicalPig = () => {
+        let arr = []
+        if (vowelsArray[0] === eachWord.charAt(0)) {
+          return undefined
+        } else if (eachWord.indexOf("a") !== -1) {
+          let aIndex = eachWord.indexOf("a")
+          arr.push(aIndex)
+        } else if (eachWord.indexOf("e") !== -1) {
+          let eIndex = eachWord.indexOf("e")
+          arr.push(eIndex)
+        } if (eachWord.indexOf("i") !== -1) {
+          let iIndex = eachWord.indexOf("i")
+          arr.push(iIndex)
+        } if (eachWord.indexOf("o") !== -1) {
+          let oIndex = eachWord.indexOf("o")
+          arr.push(oIndex)
+        } if (eachWord.indexOf("u") !== -1) {
+          let uIndex = eachWord.indexOf("u")
+          arr.push(uIndex)
+        }
+        let smallestIndex = 10
+        for(let i = 0; i < arr.length; i++) {
+          if(smallestIndex > arr[i]) {
+            smallestIndex = arr[i]
+          }
+          return eachWord.slice(smallestIndex) + eachWord.slice(0, smallestIndex) + "ay"
+          
+        }
+
+        // let vowels = ["a", "e", "i", "o", "u"]
+
+        // return eachWord.search(vowels)
+
+
+
+        // return eachWord.findIndex(letter => {
+        //   return letter === vowelsArray
+        // })
+
+        // return eachWord.includes("u")
+        //   return eachWord.indexOf()
+        // }
+      }
+      console.log(typicalPig());
+
       const yIsSometimesAVowel = () => {
         if(!vowelsArray.includes(eachWord) && eachWord.includes("y")){
          let yIndex = eachWord.indexOf("y")
@@ -41,8 +86,6 @@ const App = () => {
         }
       }
       console.log(yIsSometimesAVowel());
-
-
 
       const quFinder = () => {
         if(vowelsArray[0] === eachWord.charAt(0)) {
@@ -55,27 +98,16 @@ const App = () => {
       }
       console.log(quFinder())
       
-    const firstLetterVowel = () => {
-      if(vowelsArray[0] === eachWord.charAt(0)) {
-        return eachWord + "way"
+      const firstLetterVowel = () => {
+        if(vowelsArray[0] === eachWord.charAt(0)) {
+          return eachWord + "way"
+        }
       }
-    }
-
-
-
-
-
-      // const firstLetterVowel = (arrayOfUserInput) => {
-      //   console.log(arrayOfUserInput);
-      //   const vowels = ["a", "e", "i", "o", "u"]
-      //   if(vowels.includes(arrayOfUserInput.slice(0))){
-      //     return arrayOfUserInput + "way"
-      //   }
-      // }
       console.log(firstLetterVowel());
-      // ACTION ITEM: this return will be the output of your Pig Latin'd code
-      return eachWord
-    })
+
+        // ACTION ITEM: this return will be the output of your Pig Latin'd code
+        return eachWord
+      })
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
@@ -87,7 +119,7 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
+    setUserInput("")
     setInputTranslated("")
   }
 
@@ -126,7 +158,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2024 | Coded by: Matt & Morgan</footer>
     </div>
   )
 }
