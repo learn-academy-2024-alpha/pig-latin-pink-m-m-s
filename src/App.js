@@ -5,7 +5,7 @@ import butcherPigImage from "./assets/butcherPig.jpeg"
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "apple through queen squeal fry fluent"
+    ""
   )
   const [inputTranslated, setInputTranslated] = useState("")
 
@@ -32,6 +32,7 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
+
       const quFinder = () => {
         if(vowelsArray[0] === eachWord.charAt(0)) {
           return null
@@ -42,14 +43,32 @@ const App = () => {
         }
       }
       console.log(quFinder())
+      
+    const firstLetterVowel = () => {
+      if(vowelsArray[0] === eachWord.charAt(0)) {
+        return eachWord + "way"
+      }
+    }
 
+
+
+
+
+      // const firstLetterVowel = (arrayOfUserInput) => {
+      //   console.log(arrayOfUserInput);
+      //   const vowels = ["a", "e", "i", "o", "u"]
+      //   if(vowels.includes(arrayOfUserInput.slice(0))){
+      //     return arrayOfUserInput + "way"
+      //   }
+      // }
+      console.log(firstLetterVowel());
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
-    console.log("translatedWords:", translatedWords)
+    // console.log("translatedWords:", translatedWords)
 
     // NO MODIFICATION NEEDED: this will update the inputTranslated variable in state
     setInputTranslated(translatedWords)
