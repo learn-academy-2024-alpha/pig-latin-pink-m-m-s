@@ -12,7 +12,8 @@ const App = () => {
   // ACTION ITEM: the "myPigLatinCodeHere" function is where you will put your logic to translate the sentence entered by the user into Pig Latin
   const myPigLatinCodeHere = () => {
     // NO MODIFICATION NEEDED: the variable "arrayOfUserInput" will contain the text input from the user split into an array of words
-    const arrayOfUserInput = userInput.split(" ")
+    const punctuation = /[.,?!]/g;
+    const arrayOfUserInput = userInput.toLowerCase().replace(punctuation, "").split(" ")
     console.log("arrayOfUserInput:", arrayOfUserInput)
 
     // NO MODIFICATION NEEDED: now that we have an array of words, we can map over the array and look at each word
@@ -32,10 +33,34 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
-      const typicalPig = () => {
+      
+       
+
+        if(vowelsArray[0] === eachWord.charAt(0)) {
+        eachWord = eachWord + "way"
+        return eachWord
+        }
+
+         if(vowelsArray[0] === eachWord.charAt(0)) {
+            return null
+        } else if (eachWord.slice(1, 3).includes("qu")) {
+            eachWord = eachWord.slice(3) + eachWord.slice(0, 3) + "ay"
+            return eachWord
+        } else if (eachWord.slice(0, 2).includes("qu")) {
+            eachWord = eachWord.slice(2) + eachWord.slice(0, 2) + "ay"
+            return eachWord 
+        }
+          
+        if( vowelsArray.length === 0 && eachWord.includes("y")){
+         let yIndex = eachWord.indexOf("y")
+         eachWord = eachWord.slice(yIndex) + eachWord.slice(0, yIndex) + "ay"
+         return eachWord
+
+        }
+
         let arr = []
         if (vowelsArray[0] === eachWord.charAt(0)) {
-          return undefined
+          return null
         } else if (eachWord.indexOf("a") !== -1) {
           let aIndex = eachWord.indexOf("a")
           arr.push(aIndex)
@@ -51,12 +76,17 @@ const App = () => {
         } if (eachWord.indexOf("u") !== -1) {
           let uIndex = eachWord.indexOf("u")
           arr.push(uIndex)
+        } else {
+          return alert( `${eachWord} is not a word silly`)
         }
+
         let smallestIndex = 10
         for(let i = 0; i < arr.length; i++) {
           if(smallestIndex > arr[i]) {
             smallestIndex = arr[i]
+          } console.log(smallestIndex);
           }
+
           return eachWord.slice(smallestIndex) + eachWord.slice(0, smallestIndex) + "ay"
         }
 
@@ -104,8 +134,12 @@ const App = () => {
       }
       console.log(firstLetterVowel());
 
+          eachWord = eachWord.slice(smallestIndex) + eachWord.slice(0, smallestIndex) + "ay"
+         
+          
         // ACTION ITEM: this return will be the output of your Pig Latin'd code
-        return eachWord
+        let noPunctuation = eachWord.replace(punctuation, "")
+        return noPunctuation
       })
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
