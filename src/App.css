@@ -1,49 +1,76 @@
 * {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
 }
 
 /* ---HEADER--- */
 
-h1 {
-  font-size: 4rem;
+.title {
+  font-size: 50px;
+  color: white;
 }
 
-.butcher-pig-image {
-  margin: 1rem;
-  width: 14rem;
-}
 
 /* ---BODY--- */
+
+.btn-container {
+  width: 100%;
+}
 
 button {
   border-radius: 0.9rem;
   margin: 1rem;
   padding: 1rem;
+  background-color: #fff;
+  border: none;
 }
 
-.body-container {
-  padding-bottom: 3rem;
+button:hover {
+  background-color: #df2ba9;
+  cursor: pointer;
+  color: #fff;
+}
+
+.sub-header {
+  display: flex;
 }
 
 .page-container {
   min-height: 100vh;
-  position: relative;
+  background-color: #FFE7F7;
+  background-size: cover;
 }
 
 .input-section {
-  background-color: grey;
+  min-height: 60dvh;
+  background-color: #FFB1E7;
   border-radius: 0.5rem;
   color: #fff;
-  margin: 1rem;
+  margin-left: 200px;
+  margin-right: 200px;
   padding: 1rem;
 }
 
 .user-input {
   border-radius: 0.5rem;
+  border: none;
   font-size: 1rem;
-  height: 3rem;
-  width: 30rem;
+  height: 15dvh;
+  width: 90%;
+  background-color: #FFB1E7;
+}
+
+.input-parent {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  color: #fff;
+}
+
+.translated-word {
+  color: #df2ba9;
 }
 
 /* ---FOOTER--- */
@@ -58,9 +85,7 @@ footer {
 /* ---MEDIA QUERIES--- */
 
 @media only screen and (max-width: 650px) {
-  h1 {
-    font-size: 2rem;
-  }
+ 
   .user-input {
     font-size: 1rem;
     height: 5rem;

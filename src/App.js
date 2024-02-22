@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./App.css"
-import butcherPigImage from "./assets/butcherPig.jpeg"
+import './App.css'
 
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
@@ -58,7 +58,6 @@ const App = () => {
             smallestIndex = arr[i]
           }
           return eachWord.slice(smallestIndex) + eachWord.slice(0, smallestIndex) + "ay"
-          
         }
 
         // let vowels = ["a", "e", "i", "o", "u"]
@@ -137,26 +136,30 @@ const App = () => {
   return (
     <div className="page-container">
       <div className="body-container">
-        <h1>Pig Latin Translator</h1>
-        <img
-          src={butcherPigImage}
-          alt="drawing of pig with butcher cut names in pig latin"
-          className="butcher-pig-image"
-        />
+        
+        <h1 className="title">Pig Latin Translator</h1>
 
         <div className="input-section">
-          <h4>Enter phrase to be translated:</h4>
-          <input
-            type="text"
-            className="user-input"
-            onChange={handleInput}
-            value={userInput}
-          />
-          <br />
-          <button onClick={setUpPreventDefault}>Submit</button>
-          <button onClick={restartGame}>Clear</button>
+          <div className="sub-header">
+            <h4>Phrase to be translated:</h4>
+          </div>
+          <div className="input-parent">
+            <input
+              type="text"
+              className="user-input"
+              onChange={handleInput}
+              value={userInput}
+            />
+          </div>
+          <div className="btn-container">
+            <button onClick={setUpPreventDefault}>Submit</button>
+            <button onClick={restartGame}>Clear</button>
+          </div>
+          <div className="sub-header">
+            <h4>Phrase translated:</h4>
+          </div>
+          <p><span className="translated-word">{inputTranslated}</span></p>
         </div>
-        <p>{inputTranslated}</p>
       </div>
       <footer>&copy; 2024 | Coded by: Matt & Morgan</footer>
     </div>
