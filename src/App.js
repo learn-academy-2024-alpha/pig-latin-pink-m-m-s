@@ -124,6 +124,9 @@ const App = () => {
         <h1>Pig Latin Translator</h1>
 
         <div className="input-section">
+          <div className="parent">
+
+          </div>
           <h4>Enter phrase to be translated:</h4>
           <input
             type="text"
@@ -131,11 +134,11 @@ const App = () => {
             onChange={handleInput}
             value={userInput}
           />
-          <br />
+          <h4>Phrase translated:</h4>
           <button onClick={setUpPreventDefault}>Submit</button>
           <button onClick={restartGame}>Clear</button>
+          <p><span className="input-text">{inputTranslated}</span></p>
         </div>
-        <p>{inputTranslated}</p>
       </div>
       <footer>&copy; 2024 | Coded by: Matt & Morgan</footer>
     </div>
